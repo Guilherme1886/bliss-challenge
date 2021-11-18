@@ -4,13 +4,8 @@ class GitHubRepository(private val service: GitHubService) {
 
     suspend fun getEmojis() = service.getEmojis()
 
-    fun getUserData(username: String) {
-        service.getUserData(username)
-    }
+    suspend fun getUserData() = service.getUserData()
 
-    fun getUserRepo(username: String) {
-        service.getUserRepo(username)
-    }
-
+    suspend fun getUserRepo() = service.getUserRepo()
 
 }

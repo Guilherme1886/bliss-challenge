@@ -16,17 +16,14 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.emojiListButton.setOnClickListener {
-//            viewModel.typeList = 0
-            showListActivity(this, 0)
-
+            showListActivity(this, 0, "EMOJI")
         }
         binding.avatarListButton.setOnClickListener {
-
+            showListActivity(this, 0, "AVATAR")
         }
         binding.repoButton.setOnClickListener {
-
+            showListActivity(this, 1, "REPOSITORY")
         }
-
 
     }
 

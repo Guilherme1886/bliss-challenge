@@ -43,7 +43,8 @@ class ListAdapter(
             is ImageViewHolder -> {
                 holder.bind(items[position])
             }
-            else -> {
+            is TextViewHolder -> {
+                holder.bind(items[position])
             }
         }
     }

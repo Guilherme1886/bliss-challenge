@@ -16,6 +16,12 @@ class MainViewModel(
     private val _getEmojisLiveData = MutableLiveData<MutableList<String>>()
     var getEmojisLiveData: LiveData<MutableList<String>> = _getEmojisLiveData
 
+    private val _getAvatarLiveData = MutableLiveData<MutableList<String>>()
+    var getAvatarLiveData: LiveData<MutableList<String>> = _getAvatarLiveData
+
+    private val _getReposLiveData = MutableLiveData<MutableList<String>>()
+    var getReposLiveData: LiveData<MutableList<String>> = _getReposLiveData
+
     var typeList = -1
 
     fun getEmojis() {
@@ -33,6 +39,21 @@ class MainViewModel(
                     emojis.body()?.get("british_indian_ocean_territory")?.asString ?: ""
                 )
             )
+        }
+    }
+
+    fun getAvatar() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val avatar = getUserDataUseCase.getUserData()
+            _getAvatarLiveData.postValue(mutableListOf(avatar.body()?.get("avatar_url")!!.asString))
+        }
+    }
+
+    fun getRepository() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val repos = getUserRepoUseCase.getUserRepo()
+            val items = repos.body()?.map { it.asJsonObject["full_name"].asString }
+            _getReposLiveData.postValue(items?.toMutableList())
         }
     }
 
