@@ -13,18 +13,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setListeners()
+    }
 
-
+    private fun setListeners() {
         binding.emojiListButton.setOnClickListener {
-            showListActivity(this, 0, "EMOJI")
+            showListActivity(this, TypeList.EMOJI.value)
         }
         binding.avatarListButton.setOnClickListener {
-            showListActivity(this, 0, "AVATAR")
+            showListActivity(this, TypeList.AVATAR.value)
         }
         binding.repoButton.setOnClickListener {
-            showListActivity(this, 1, "REPOSITORY")
+            showListActivity(this, TypeList.REPOSITORY.value)
         }
-
     }
 
 }
