@@ -8,21 +8,21 @@ import androidx.room.Query
 interface AppDao {
 
     @Query("SELECT * FROM emoji")
-    fun getEmoji(): List<EmojiEntity>
+    suspend fun getEmoji(): List<EmojiEntity>
 
     @Insert
-    fun insertEmojis(emojis: List<EmojiEntity>)
+    suspend fun insertEmojis(emojis: List<EmojiEntity>)
 
     @Query("SELECT * FROM avatar")
-    fun getAvatar(): List<AvatarEntity>
+    suspend fun getAvatar(): AvatarEntity
 
     @Insert
-    fun insertAvatar(avatars: List<AvatarEntity>)
+    suspend fun insertAvatar(avatars: AvatarEntity)
 
     @Query("SELECT * FROM repository")
-    fun getRepository(): List<RepositoryEntity>
+    suspend fun getRepository(): List<RepositoryEntity>
 
     @Insert
-    fun insertRepositories(repositories: List<RepositoryEntity>)
+    suspend fun insertRepositories(repositories: List<RepositoryEntity>)
 
 }

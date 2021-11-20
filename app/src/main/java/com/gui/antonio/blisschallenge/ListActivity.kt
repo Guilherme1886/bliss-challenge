@@ -43,16 +43,19 @@ class ListActivity : AppCompatActivity() {
 
     private fun setObservers() {
         viewModel.getEmojisLiveData.observe(this) {
+            binding.progressIndicator.hide()
             binding.recyclerView.layoutManager = GridLayoutManager(this@ListActivity, FOUR)
             listAdapter.items = it
         }
 
         viewModel.getAvatarLiveData.observe(this) {
+            binding.progressIndicator.hide()
             binding.recyclerView.layoutManager = GridLayoutManager(this@ListActivity, FOUR)
             listAdapter.items = it
         }
 
         viewModel.getReposLiveData.observe(this) {
+            binding.progressIndicator.hide()
             binding.recyclerView.layoutManager = LinearLayoutManager(this@ListActivity)
             listAdapter.items = it
         }

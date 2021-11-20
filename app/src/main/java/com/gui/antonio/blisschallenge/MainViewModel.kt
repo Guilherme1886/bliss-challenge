@@ -26,34 +26,27 @@ class MainViewModel(
 
     fun getEmojis() {
         viewModelScope.launch(Dispatchers.IO) {
-            val emojis = getEmojisUseCase.getEmojis()
-            _getEmojisLiveData.postValue(
-                mutableListOf(
-                    emojis.body()?.get("accept")?.asString ?: "",
-                    emojis.body()?.get("balloon")?.asString ?: "",
-                    emojis.body()?.get("amphora")?.asString ?: "",
-                    emojis.body()?.get("arrow_lower_left")?.asString ?: "",
-                    emojis.body()?.get("athletic_shoe")?.asString ?: "",
-                    emojis.body()?.get("auto_rickshaw")?.asString ?: "",
-                    emojis.body()?.get("bullettrain_side")?.asString ?: "",
-                    emojis.body()?.get("british_indian_ocean_territory")?.asString ?: ""
-                )
-            )
+            val emojis = getEmojisUseCase.getEmojis().map {
+                it.emoji
+            }.toMutableList()
+            _getEmojisLiveData.postValue(emojis)
         }
     }
 
     fun getAvatar() {
         viewModelScope.launch(Dispatchers.IO) {
             val avatar = getUserDataUseCase.getUserData()
-            _getAvatarLiveData.postValue(mutableListOf(avatar.body()?.get("avatar_url")!!.asString))
+            _getAvatarLiveData.postValue(mutableListOf(avatar.url ?: ""))
         }
     }
 
     fun getRepository() {
         viewModelScope.launch(Dispatchers.IO) {
             val repos = getUserRepoUseCase.getUserRepo()
-            val items = repos.body()?.map { it.asJsonObject["full_name"].asString }
-            _getReposLiveData.postValue(items?.toMutableList())
+            val repositories = repos.map {
+                it.name
+            }.toMutableList()
+            _getReposLiveData.postValue(repositories)
         }
     }
 
