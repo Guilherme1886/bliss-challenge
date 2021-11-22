@@ -1,7 +1,7 @@
 package com.gui.antonio.blisschallenge
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,7 +36,10 @@ class ListActivity : AppCompatActivity() {
 
         when (getType(type)) {
             TypeList.EMOJI -> viewModel.getEmojis()
-            TypeList.AVATAR -> viewModel.getAvatar()
+            TypeList.AVATAR -> {
+                val username = intent.getStringExtra(KEY_USERNAME)
+                if (username != null) viewModel.getAvatar(username) else viewModel.getAvatar()
+            }
             TypeList.REPOSITORY -> viewModel.getRepository()
         }
     }

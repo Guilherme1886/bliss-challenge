@@ -34,11 +34,11 @@ class GitHubRepository(private val service: GitHubService) {
         }
     }
 
-    suspend fun getUserData(): AvatarPresentation {
+    suspend fun getUserData(username: String? = null): AvatarPresentation {
         val avatarFromDB = db?.appDao()?.getAvatar()
 
         if (avatarFromDB == null) {
-            val avatarFromAPI = service.getUserData().body()?.get("avatar_url")?.asString
+            val avatarFromAPI = service.getUserData(username ?: "Guilherme1886").body()?.get("avatar_url")?.asString
             db?.appDao()?.insertAvatar(AvatarEntity(url = avatarFromAPI ?: ""))
 
             val b = db?.appDao()?.getAvatar()

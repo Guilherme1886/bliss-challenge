@@ -1,8 +1,7 @@
 package com.gui.antonio.blisschallenge
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.gui.antonio.blisschallenge.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +18,9 @@ class MainActivity : AppCompatActivity() {
     private fun setListeners() {
         binding.emojiListButton.setOnClickListener {
             showListActivity(this, TypeList.EMOJI.value)
+        }
+        binding.usernameTextInputLayout.setStartIconOnClickListener {
+            showListActivity(this, TypeList.AVATAR.value, binding.usernameTextEditText.text.toString())
         }
         binding.avatarListButton.setOnClickListener {
             showListActivity(this, TypeList.AVATAR.value)

@@ -22,7 +22,7 @@
         android:text="AVATAR LIST"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/username_text_input" />
+        app:layout_constraintTop_toBottomOf="@id/username_text_input_layout" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/repo_button"
@@ -43,13 +43,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/username_text_input"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/username_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableEnd="@android:drawable/ic_menu_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emoji_list_button" />
+        app:layout_constraintTop_toBottomOf="@id/emoji_list_button"
+        app:startIconContentDescription="search"
+        app:startIconDrawable="@android:drawable/ic_menu_search">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username_text_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

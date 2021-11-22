@@ -12,7 +12,7 @@ interface GitHubService {
     suspend fun getEmojis(): Response<JsonObject>
 
     @GET("/users/{username}")
-    suspend fun getUserData(@Path("username") username: String = "Guilherme1886"): Response<JsonObject>
+    suspend fun getUserData(@Path("username") username: String): Response<JsonObject>
 
     @GET("/users/{username}/repos")
     suspend fun getUserRepo(@Path("username") username: String = "google"): Response<JsonArray>

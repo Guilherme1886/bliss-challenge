@@ -33,9 +33,9 @@ class MainViewModel(
         }
     }
 
-    fun getAvatar() {
+    fun getAvatar(username: String? = null) {
         viewModelScope.launch(Dispatchers.IO) {
-            val avatar = getUserDataUseCase.getUserData()
+            val avatar = getUserDataUseCase.getUserData(username)
             _getAvatarLiveData.postValue(mutableListOf(avatar.url ?: ""))
         }
     }
