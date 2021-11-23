@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gui.antonio.blisschallenge.KEY_TYPE
-import com.gui.antonio.blisschallenge.KEY_USERNAME
 import com.gui.antonio.blisschallenge.databinding.ActivityListBinding
+import com.gui.antonio.blisschallenge.extensions.KEY_TYPE
+import com.gui.antonio.blisschallenge.extensions.KEY_USERNAME
 import com.gui.antonio.blisschallenge.presentation.adapter.ListAdapter
 import com.gui.antonio.blisschallenge.presentation.viewmodel.MainViewModel
 import com.gui.antonio.blisschallenge.presentation.viewmodel.factory.MainViewModelFactory

@@ -3,7 +3,7 @@ package com.gui.antonio.blisschallenge.presentation.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.gui.antonio.blisschallenge.databinding.ActivityMainBinding
-import com.gui.antonio.blisschallenge.showListActivity
+import com.gui.antonio.blisschallenge.extensions.showListActivity
 
 class MainActivity : AppCompatActivity() {
 

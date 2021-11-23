@@ -24,7 +24,7 @@ class ListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            0 -> {
+            IMAGE_VIEW_HOLDER -> {
                 ImageViewHolder(
                     ItemImageBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
@@ -60,6 +60,10 @@ class ListAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return listType
+    }
+
+    companion object {
+        private const val IMAGE_VIEW_HOLDER = 0
     }
 
 

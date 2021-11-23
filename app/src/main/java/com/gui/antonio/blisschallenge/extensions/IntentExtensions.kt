@@ -1,4 +1,4 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.extensions
 
 import android.content.Context
 import android.content.Intent

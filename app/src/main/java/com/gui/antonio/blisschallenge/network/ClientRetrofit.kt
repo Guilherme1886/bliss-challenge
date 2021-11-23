@@ -6,12 +6,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ClientRetrofit {
 
-    var retrofit: Retrofit? = null
+    private var retrofit: Retrofit? = null
+    private const val BASE_URL = "https://api.github.com"
 
     fun get(): Retrofit? {
         if (retrofit == null) {
             return Retrofit.Builder()
-                .baseUrl("https://api.github.com")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
