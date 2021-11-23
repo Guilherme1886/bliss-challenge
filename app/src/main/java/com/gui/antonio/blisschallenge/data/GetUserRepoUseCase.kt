@@ -1,4 +1,4 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.data
 
 class GetUserRepoUseCase(private val repository: GitHubRepository) {
 

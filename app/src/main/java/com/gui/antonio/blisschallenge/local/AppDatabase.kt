@@ -1,4 +1,4 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

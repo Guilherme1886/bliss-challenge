@@ -1,4 +1,12 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.data
+
+import com.gui.antonio.blisschallenge.application.MainApplication
+import com.gui.antonio.blisschallenge.local.EmojiEntity
+import com.gui.antonio.blisschallenge.local.RepositoryEntity
+import com.gui.antonio.blisschallenge.network.GitHubService
+import com.gui.antonio.blisschallenge.presentation.model.AvatarPresentation
+import com.gui.antonio.blisschallenge.presentation.model.EmojiPresentation
+import com.gui.antonio.blisschallenge.presentation.model.RepositoryPresentation
 
 class GitHubRepository(private val service: GitHubService) {
 
@@ -35,21 +43,22 @@ class GitHubRepository(private val service: GitHubService) {
     }
 
     suspend fun getUserData(username: String? = null): AvatarPresentation {
-        val avatarFromDB = db?.appDao()?.getAvatar()
+//        val avatarFromDB = db?.appDao()?.getAvatar()
 
-        if (avatarFromDB == null) {
-            val avatarFromAPI = service.getUserData(username ?: "Guilherme1886").body()?.get("avatar_url")?.asString
-            db?.appDao()?.insertAvatar(AvatarEntity(url = avatarFromAPI ?: ""))
-
-            val b = db?.appDao()?.getAvatar()
-
-            if (b != null) {
-                return AvatarPresentation(b.url)
-            }
-            return AvatarPresentation("")
-        } else {
-            return AvatarPresentation(avatarFromDB.url)
-        }
+//        if (avatarFromDB == null) {
+        val avatarFromAPI = service.getUserData(username ?: "Guilherme1886").body()?.get("avatar_url")?.asString
+        return AvatarPresentation(avatarFromAPI)
+//            db?.appDao()?.insertAvatar(AvatarEntity(url = avatarFromAPI ?: ""))
+//
+//            val b = db?.appDao()?.getAvatar()
+//
+//            if (b != null) {
+//                return AvatarPresentation(b.url)
+//            }
+//            return AvatarPresentation("")
+//        } else {
+//            return AvatarPresentation(avatarFromDB.url)
+//        }
     }
 
     suspend fun getUserRepo(): MutableList<RepositoryPresentation> {

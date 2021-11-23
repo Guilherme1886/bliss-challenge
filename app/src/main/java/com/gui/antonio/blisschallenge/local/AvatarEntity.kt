@@ -1,4 +1,4 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

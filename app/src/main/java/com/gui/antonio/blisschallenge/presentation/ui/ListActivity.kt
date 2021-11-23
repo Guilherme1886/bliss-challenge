@@ -1,11 +1,16 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.presentation.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.gui.antonio.blisschallenge.KEY_TYPE
+import com.gui.antonio.blisschallenge.KEY_USERNAME
 import com.gui.antonio.blisschallenge.databinding.ActivityListBinding
+import com.gui.antonio.blisschallenge.presentation.adapter.ListAdapter
+import com.gui.antonio.blisschallenge.presentation.viewmodel.MainViewModel
+import com.gui.antonio.blisschallenge.presentation.viewmodel.factory.MainViewModelFactory
 
 class ListActivity : AppCompatActivity() {
 
@@ -76,6 +81,10 @@ class ListActivity : AppCompatActivity() {
         binding.recyclerView.apply {
             setHasFixedSize(true)
             adapter = listAdapter
+            listAdapter.imageOnClick = {
+                listAdapter.items.removeAt(it)
+                listAdapter.items = listAdapter.items
+            }
         }
     }
 

@@ -1,12 +1,13 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.presentation.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.LayoutInflaterCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.gui.antonio.blisschallenge.databinding.ItemImageBinding
 import com.gui.antonio.blisschallenge.databinding.ItemTextBinding
+import com.gui.antonio.blisschallenge.presentation.viewholder.ImageViewHolder
+import com.gui.antonio.blisschallenge.presentation.viewholder.TextViewHolder
 
 class ListAdapter(
     private val listType: Int
@@ -19,14 +20,18 @@ class ListAdapter(
             notifyDataSetChanged()
         }
 
+    var imageOnClick: ((Int) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             0 -> {
                 ImageViewHolder(
                     ItemImageBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
-                    )
-                )
+                    ),
+                ) {
+                    imageOnClick?.invoke(it)
+                }
             }
             else -> {
                 TextViewHolder(
@@ -41,7 +46,7 @@ class ListAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is ImageViewHolder -> {
-                holder.bind(items[position])
+                holder.bind(items[position], position)
             }
             is TextViewHolder -> {
                 holder.bind(items[position])
@@ -56,4 +61,6 @@ class ListAdapter(
     override fun getItemViewType(position: Int): Int {
         return listType
     }
+
+
 }

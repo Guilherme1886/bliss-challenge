@@ -1,9 +1,12 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gui.antonio.blisschallenge.data.GetEmojisUseCase
+import com.gui.antonio.blisschallenge.data.GetUserDataUseCase
+import com.gui.antonio.blisschallenge.data.GetUserRepoUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

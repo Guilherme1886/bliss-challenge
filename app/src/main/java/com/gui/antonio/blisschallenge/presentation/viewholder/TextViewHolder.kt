@@ -1,4 +1,4 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.presentation.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.gui.antonio.blisschallenge.databinding.ItemTextBinding

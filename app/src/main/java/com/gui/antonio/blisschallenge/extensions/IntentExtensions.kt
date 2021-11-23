@@ -3,6 +3,7 @@ package com.gui.antonio.blisschallenge
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import com.gui.antonio.blisschallenge.presentation.ui.ListActivity
 
 const val KEY_TYPE = "KEY_TYPE"
 const val KEY_USERNAME = "KEY_USERNAME"

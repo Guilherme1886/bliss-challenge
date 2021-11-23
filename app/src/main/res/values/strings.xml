@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BlissChallenge</string>
+    <string name="emoji_list">EMOJI LIST</string>
+    <string name="avatar_list">AVATAR LIST</string>
+    <string name="google_repos">GOOGLE REPOS</string>
 </resources>

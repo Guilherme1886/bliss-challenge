@@ -1,4 +1,4 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.data
 
 class GetEmojisUseCase(private val repository: GitHubRepository) {
 

@@ -1,8 +1,9 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.presentation.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.gui.antonio.blisschallenge.databinding.ActivityMainBinding
+import com.gui.antonio.blisschallenge.showListActivity
 
 class MainActivity : AppCompatActivity() {
 

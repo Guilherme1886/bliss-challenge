@@ -1,4 +1,4 @@
-package com.gui.antonio.blisschallenge
+package com.gui.antonio.blisschallenge.network
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
